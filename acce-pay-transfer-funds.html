@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Acceinfo - Bank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A premium admin dashboard template by mannatthemes" name="description" />
+        <meta content="Mannatthemes" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <style type="text/css">
+        /* Default styles for the sidebar */
+        .left-side-nav-slider {
+            width: 250px;
+            background-color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .card-dt{
+            margin-bottom: 20px;
+            border: none;
+            -webkit-box-shadow: none !important;
+            border-radius: 3px;
+        }
+
+        /* Styles for mobile screens */
+        @media (max-width: 768px) {
+            /* Hide the menu by default in mobile */
+            .left-side-nav-slider {
+                position: fixed;
+                top: 0;
+                left: -100%; /* Initially hidden */
+                height: 100vh;
+                transition: left 0.3s ease-in-out;
+                z-index: 1050; /* Ensure it's above the navbar */
+                width: 80% !important;
+            }
+
+            /* Show the menu when active */
+            .left-side-nav-slider.active {
+                left: 0;
+            }
+
+            
+            /* Hamburger Menu Button */
+.menu-button {
+/*    position: fixed; */
+    /*top: 15px;
+    left: 15px;*/
+    margin: 15px;
+    margin-left: 18px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1100; /* Ensure it appears above other content */
+}
+
+/* The three bars of the menu */
+.menu-button div {
+    width: 35px;
+    height: 2px;
+    background-color: #004D6E; /* The color you requested */
+    transition: all 0.3s ease-in-out;
+    border-radius: 0px;
+    
+}
+        }
+
+        /* Keep the menu visible in desktop view */
+        @media (min-width: 769px) {
+            .left-side-nav-slider {
+                position: static; /* Keep it as a normal sidebar */
+                height: auto;
+
+            }
+
+            /* Hide the menu button on desktop */
+            .menu-button {
+                display: none;
+            }
+            .close-menu-button{
+                display: none !important;
+            }
+        }
+        /*.pt-225rem{
+            padding-top: 2.25rem;
+        }*/
+        .close-menu-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* X icon using ::before and ::after */
+        .close-menu-button::before,
+        .close-menu-button::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: #004D6E;  /* Adjust the color to match your design */
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Rotate the bars to form an X */
+        .close-menu-button::before {
+            transform: rotate(45deg);
+        }
+
+        .close-menu-button::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Hover effect */
+        .close-menu-button:hover::before,
+        .close-menu-button:hover::after {
+            background-color: #4a5bb5;  /* Darker color on hover */
+        }
+    </style>
+
+    <body>
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+             <!-- Navbar -->
+             <nav class="navbar-custom">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo">
+                        <!-- <span>
+                            <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        </span> -->
+                        <span>
+                            <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        </span>
+                    </a>
+                </div>
+    
+                <ul class="list-unstyled topbar-nav float-right mb-0">
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <i class="mdi mdi-bell-outline nav-icon"></i>
+                            <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                            <!-- item-->
+                            <h6 class="dropdown-item-text">
+                                Notifications (258)
+                            </h6>
+                            <div class="slimscroll notification-list">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+                                    <p class="notify-details">Your item is shipped<small class="text-muted">It is a long established fact that a reader will</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                            </div>
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                View all <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" /> 
+                            <span class="ml-1 nav-user-name hidden-sm"> <i class="mdi mdi-chevron-down"></i> </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted mr-2"></i> My Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Lock screen</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle nav-link" id="mobileToggle">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>    
+                </ul>
+    
+                <ul class="list-unstyled topbar-nav mb-0">
+                    <li class="hide-phone app-search">
+                        <form role="search" class="">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </form>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+            <!-- end navbar-->
+        </div>
+        <!-- Top Bar End -->
+        <div class="page-wrapper-img">
+            <div class="page-wrapper-img-inner">
+                <div class="sidebar-user media">                    
+                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                    <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
+                    <div class="media-body">
+                        <h5 class="text-light">Mr. Michael Hill </h5>
+                        <ul class="list-unstyled list-inline mb-0 mt-2">
+                            <li class="list-inline-item">
+                                <a href="#" class=""><i class="mdi mdi-account text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class=""><i class="mdi mdi-settings text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="login.html" class=""><i class="mdi mdi-power text-danger"></i></a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="float-right align-item-center mt-2">
+                                <button class="btn btn-primary px-4 align-self-center report-btn">Contact Us</button>
+                            </div>
+                            <h4 class="page-title mb-2"><i class="mdi mdi-google-pages mr-2"></i>My Accounts</h4>  
+                            <div class="">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Personal Accounts</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Pay Bills and Transfer Funds</a></li>
+                                </ol>
+                            </div>                                      
+                        </div><!--end page title box-->
+                    </div><!--end col-->
+                </div><!--end row-->
+                <!-- end page title end breadcrumb -->
+            </div><!--end page-wrapper-img-inner-->
+        </div><!--end page-wrapper-img-->
+        
+        <div class="page-wrapper">
+            <div class="page-wrapper-inner mb-0">
+                <button class="menu-button" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+
+                <!-- Navbar Custom Menu -->
+                <div class="navbar-custom-menu">
+                    
+                    <div class="container-fluid">
+                        <div id="navigation">
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu list-unstyled">
+    
+                                <li class="has-submenu">
+                                    <a href="index.html">
+                                        <i class="mdi mdi-home"></i>
+                                        Home
+                                    </a>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-apps"></i>Products & Services</a>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-buffer"></i>My Accounts</a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Accounts Summary</a></li>
+                                        <li><a href="acce-pay-transfer-funds.html">Profile & Account Settings</a></li>
+                                    </ul>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-cards-playing-outline"></i>Customer Service</a>
+                                </li>
+                            </ul>
+                            <!-- End navigation menu -->
+                        </div> <!-- end navigation -->
+                    </div> <!-- end container-fluid -->
+                </div>
+                <!-- end left-sidenav-->
+            </div>
+            <!--end page-wrapper-inner -->
+            <!-- Page Content-->
+           
+
+            <div class="page-content">
+                <div class="container-fluid"> 
+                    <div class="row">
+                        <div class="col-lg-3 left-side-nav-slider">
+                            <div class="card card-dt">
+                                <div class="card-body profile-nav"> 
+                                    
+                                     <button class="close-menu-button" onclick="toggleMenu()"></button>
+                                    
+                                    <div class="nav flex-column nav-pills" id="profile-tab" aria-orientation="vertical">
+                                        <h5 class="my-4">Pay, Send & Receive Money</h5>
+
+                                        <a class="nav-link" id="pay-a-bill-tab" href="pay-a-bill.html">Pay a Bill</a>
+                                        <a class="nav-link active" id="transfer-funds-tab" href="#">Transfer Funds</a>
+                                        <a class="nav-link" id="send-an-interac-e-transfer-tab" href="#"><em>Send an Interac e-Transfer</em></a>
+
+                                        <a class="nav-link" id="send-international-money-transfer-tab" href="#">Send International Money Transfer</a>
+
+                                        <a class="nav-link" id="receive-a-wire-transfer-tab" href="#">Receive a Wire Transfer</a>
+
+                                        <a class="nav-link" id="pay-multiple-bills-tab" href="pay-multi-bills.html">Pay Multiple Bills</a>
+
+                                        <a class="nav-link" id="request-money-tab" href="#">Request Money</a>
+
+                                        <a class="nav-link" id="register-for-interac-e-transfer-autoDeposit-tab" href="#">Register for <em>Interac</em> e-Transfer AutoDeposit</a>
+
+                                        <a class="nav-link" id="transfer-funds-to-acce-us-banking-tab" href="#">Transfer Funds to ACCE US Banking</a>
+
+                                        <a class="nav-link" id="transfer-to-direct-investing-or-tnvestease-tab" href="#">Transfer to Direct Investing or InvestEase</a>
+
+
+                                        <h5 class="my-4">Manage Payments & Transfers</h5>
+                                            <a class="nav-link" id="payment-history-tab" href="#payment-history">Payment History</a>
+                                            <a class="nav-link" id="manage-postdated-transactions-tab" href="#manage-postdated-transactions">Manage Postdated Transactions</a>
+                                            <a class="nav-link" id="cancel-bill-payment-tab" href="#cancel-bill-payment">Cancel Bill Payment</a>
+                                            <a class="nav-link" id="cancel-interac-e-transfer-tab" href="#cancel-interac-e-transfer"><em>Cancel Interac e-Transfer</em></a>
+
+                                        <h5 class="my-4">Add Payees & Recipients</h5>
+                                            <a class="nav-link" id="add-bill-payee-tab" href="#add-bill-payee">Add Bill Payee</a>
+                                            <a class="nav-link" id="add-canada-revenue-agency-payee-tab" href="#add-canada-revenue-agency-payee">Add Canada Revenue Agency Payee</a>
+                                            <a class="nav-link" id="add-interac-e-transfer-recipient-tab" href="#add-interac-e-transfer-recipient"><em>Add Interac e-Transfer Recipient</em></a>
+                                            <a class="nav-link" id="add-international-money-transfer-recipient-tab" href="#add-international-money-transfer-recipient">Add International Money Transfer Recipient</a>
+                                            <a class="nav-link" id="add-other-acce-bank-customer-tab" href="#add-other-acce-bank-customer">Add Other ACCE Bank Customer</a> 
+
+                                        <h5 class="my-4">Manage Payees & Recipients</h5>
+                                            <a class="nav-link" id="manage-payees-tab" href="#manage-payees">Manage Payees</a>
+                                            <a class="nav-link" id="manage-international-money-transfer-recipients-tab" href="#manage-international-money-transfer-recipients">Manage International Money Transfer Recipients</a>
+                                            <a class="nav-link" id="sort-payee-list-tab" href="#sort-payee-list">Sort Payee List</a>
+                                            <a class="nav-link" id="nickname-payees-tab" href="#nickname-payees">Nickname Payees</a>         
+
+                                    </div>
+
+                                    <div class="nav-container">
+                                        <div class="nav-items" onclick="toggleDropdown('alertCentre', this)">
+                                            Alert Centre <span>›</span>
+                                        </div>
+                                        <div id="alertCentre" class="dropdown">
+                                            <a href="#">View Alerts</a>
+                                            <a href="#">Manage Notifications</a>
+                                        </div>
+
+                                        <div class="nav-items" onclick="toggleDropdown('profilePreferences', this)">
+                                            Profile and Preferences <span>›</span>
+                                        </div>
+                                        <div id="profilePreferences" class="dropdown">
+                                            <a href="#">Update Profile</a>
+                                            <a href="#">Change Password</a>
+                                        </div>
+
+                                        <div class="nav-items" onclick="toggleDropdown('productsServices', this)">
+                                            Apply for Products and Services <span>›</span>
+                                        </div>
+                                        <div id="productsServices" class="dropdown">
+                                            <a href="#">Credit Cards</a>
+                                            <a href="#">Loans</a>
+                                            <a href="#">Insurance</a>
+                                        </div>
+                                    </div>
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+
+                           
+
+                            
+                        </div><!--end col-->
+
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body pt-225rem">
+                                    <div class="tab-content" id="profile-tabContent">
+                                        <div class="tab-pane fade show active" id="pay-bills-and-transfer-funds">
+                                            <h3 class="text-primary">Pay Bills and Transfer Funds</h3> 
+                                            <br />                                       
+                                             <div class="single-pro-info-tab">
+                                                <ul class="nav nav-pills mb-0 nav-justified" id="pills-tab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="pay-with-acce-accounts-tab" data-toggle="pill" href="#pay-with-acce-accounts" aria-selected="true">Pay with ACCE Accounts</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="pay-with-acce-rewards-points-tab" data-toggle="pill" href="#pay-with-acce-rewards-points"  aria-selected="false">Pay with Rewards Points</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div class="tab-content mt-4" id="pills-tabContent">
+                                                    <div class="tab-pane fade show active" id="pay-with-acce-accounts">
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-md-12 align-self-center">
+                                                                <form class="mb-0">
+                                                                    <div class="row">
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group">
+                                                                                <label>From <small class="text-danger font-13">*</small></label>
+                                                                                <select class="form-control">
+                                                                                    <option>No Saeed! = $0.00 USD</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-9">
+                                                                            <div class="form-group">
+                                                                                <label>To <small class="text-danger font-13">*</small></label>
+                                                                                <select class="form-control">
+                                                                                    <option>Select</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>                                                
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">                            
+                                                                            <div class="form-group">
+                                                                                <label>Add new payee <small class="text-danger font-13">*</small></label>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="my-2">
+                                                                                        <div class="radio radio-primary">
+                                                                                            <input type="radio" name="radio" id="radio3" value="option3">
+                                                                                            <label for="radio3">
+                                                                                                Bill Payee
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="my-2">
+                                                                                        <div class="radio radio-primary">
+                                                                                            <input type="radio" name="radio" id="radio4" value="option4">
+                                                                                            <label for="radio4">
+                                                                                                Interace-Transfer Recipient
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="my-2">
+                                                                                        <div class="radio radio-primary">
+                                                                                            <input type="radio" name="radio" id="radio5" value="option5">
+                                                                                            <label for="radio5">
+                                                                                                ACCE Customer Account
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label>Amount <small class="text-danger font-13">*</small></label>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="row">
+                                                                                        <div class="input-daterange input-group" id="date-range">
+                                                                                            <input type="text" name="amount" class="form-control col-md-8" placeholder="$0.00" id="amount" required="">
+                                                                                            <select class="form-control">
+                                                                                                <option>CAD</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>                                               
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label class="col-form-label pt-0">How Often<small class="text-danger font-13">*</small></label>
+                                                                                <select class="form-control">
+                                                                                    <option value="Once" selected>Once</option>
+                                                                                    <option value="Weekly">Weekly</option>
+                                                                                    <option value="Bi-Weekly">Bi-Weekly</option>
+                                                                                    <option value="Twice Monthly">Twice Monthly</option>
+                                                                                    <option value="Monthly">Monthly</option>
+                                                                                    <option value="Month End">Month End</option>
+                                                                                    <option value="Bi-Monthly">Bi-Monthly</option>
+                                                                                    <option value="Quarterly">Quarterly</option>
+                                                                                    <option value="Semi-Annually">Semi-Annually</option>
+                                                                                    <option value="Annually">Annually</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div> 
+                                                                                                                        
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label class="col-form-label pt-0">When <small class="text-danger font-13">*</small></label>
+                                                                                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                                                            </div>            
+                                                                        </div>                                                
+                                                                    </div>
+
+
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-start">
+                                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light btn-pd-left-right">Cancel</button>
+                                                                            </div>          
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-end">
+                                                                                <button type="button" class="btn btn-primary waves-effect waves-light btn-pd-left-right">Next</button>
+                                                                            </div>             
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="alert alert-outline-primary mb-0" role="alert">
+                                                                                <h4 class="alert-heading font-18"><i class="fas fa-info-circle"></i> When are my transactions processed?</h4>
+                                                                               <p>After you initiate an <em>Interac</em> e-Transfer, we will withdraw the chosen amount from the account selected and 
+                                                                                send an email or text message notification to the <em>Interac</em> e-Transfer recipient at the email address or mobile 
+                                                                                number that you provide. The email or text message notification will identify you as the sender and contain 
+                                                                                the <em>Interac</em> e-Transfer amount, the name of the <em>Interac</em> e-Transfer recipient, and that you are using 
+                                                                                <em>Interac</em> e-Transfer.</p>
+
+                                                                                <p>An <em>Interac</em> e-Transfer recipient can claim or decline the <em>Interac</em> e-Transfer using Online and Mobile Banking, 
+                                                                                the online and mobile banking services of another financial institution.</p>
+
+                                                                                <p>ACCE and other financial institutions participating in <em>Interac</em> e-Transfer, the owner of the <em>Interac</em> e-Transfer 
+                                                                                service, are entitled to pay an <em>Interac</em> e-Transfer to anyone who, in using Online or Mobile Banking, or the 
+                                                                                online or mobile banking service of another financial institution, claims the <em>Interac</em> e-Transfer and where 
+                                                                                applicable, correctly responds to the <em>Interac</em> e-Transfer question, whether you intended that person to receive 
+                                                                                the <em>Interac</em> e-Transfer or not.</p>
+
+                                                                                <p>You are responsible for providing a correct and operational email address and/or mobile number for the transaction.</p>
+                                                                            </div>                                                                            
+                                                                        </div>
+                                                                        
+                                                                    </div>                                            
+                                                                </form>
+                                                                
+                                                            </div><!--end col-->
+                                                        </div><!--end row-->                                                    
+                                                    </div>
+                                                    <div class="tab-pane fade mt-4" id="pay-with-acce-rewards-points">
+                                                        <div>
+                                                            
+                                                                                                                                                                      
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade mt-4" id="pills-about-brand">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                <img src="assets/images/products/2.jpg" alt="" height="150" class="d-block mx-auto">
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span class="bg-soft-danger rounded-pill px-3 py-2 font-weight-bold">Frogetor</span>
+                                                                <h5 class="mt-3">It is a long established fact that a reader will be distracted</h5>
+                                                                <p class="text-muted mb-0">There are many variations of passages of Lorem Ipsum available, 
+                                                                    but the majority have suffered alteration in some form, by injected humour, 
+                                                                    or randomised words which don't look even slightly believable. 
+                                                                    If you are going to use a passage.
+                                                                </p>
+                                                            </div><!--end col-->
+                                                            <div class="col-lg-4">
+                                                                <ul class="list-unstyled">
+                                                                    <li class="mb-2 font-13 text-muted"><i class="mdi mdi-checkbox-marked-circle-outline text-success mr-2"></i>It is a long established fact that a reader will be distracted.</li>
+                                                                    <li class="mb-2 font-13 text-muted"><i class="mdi mdi-checkbox-marked-circle-outline text-success mr-2"></i>Contrary to popular belief, Lorem Ipsum is not text.</li>
+                                                                    <li class="mb-2 font-13 text-muted"><i class="mdi mdi-checkbox-marked-circle-outline text-success mr-2"></i>There are many variations of passages of Lorem.</li>
+                                                                    <li class="mb-2 font-13 text-muted"><i class="mdi mdi-checkbox-marked-circle-outline text-success mr-2"></i>It is a long established fact that a reade.</li>
+                                                                </ul>
+                                                            </div><!--end col-->
+                                                        </div><!--end row-->
+                                                    </div>
+                                                    <div class="tab-pane fade mt-4" id="pills-custom">
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+                                                                <div class="pro-order-box mb-2 mb-lg-0">
+                                                                    <i class="mdi mdi-white-balance-sunny text-warning"></i>
+                                                                    <h4 class="header-title">Seff from Sunlight</h4>
+                                                                    <p class="text-muted">
+                                                                        Contrary to popular belief, Lorem Ipsum is.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="pro-order-box mb-2 mb-lg-0">
+                                                                    <i class="mdi mdi-fire text-danger"></i>
+                                                                    <h4 class="header-title">Not Seff from Fire </h4>
+                                                                    <p class="text-muted">
+                                                                        It is a long established fact that.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="pro-order-box mb-2 mb-lg-0">
+                                                                    <i class="mdi mdi-glass-wine text-success"></i>
+                                                                    <h4 class="header-title">Seff from liqvid</h4>
+                                                                    <p class="text-muted">
+                                                                        There are many variations of passages.
+                                                                    </p>
+                                                                </div>
+                                                            </div>                                                                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                           
+                                        </div><!--end tab-pane-->
+
+                                        <div class="tab-pane fade" id="request-money">
+                                            <h4 class="mt-0 header-title mb-3">Request Money</h4>
+                                            
+                                        </div><!--end tab-pane-->
+
+                                        <div class="tab-pane fade" id="cancel-bill-payment">
+                                            <h4 class="mt-0 header-title mb-3">Cancel Bill Payment</h4>
+                                            
+                                        </div><!--end tab-pen-->
+
+                                        <div class="tab-pane fade" id="pay-multiple-bills">
+                                            <h4 class="mt-0 header-title mb-3">Pay Multiple Bills</h4>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    
+                                                </div> <!--end col-->                                          
+                                            </div><!--end row-->
+                                        </div><!--end tab-pane-->
+                                    </div>  <!--end tab-content-->                                                                              
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div><!--end col-->
+                        <div class="col-lg-3" style="display: none;">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body profile-nav"> 
+                                            <h5 class="my-4">Related Services</h5>
+                                            <div class="nav flex-column nav-pills" id="profile-tab" aria-orientation="vertical">
+                                                <a class="nav-link" id="add-payee-tab" data-toggle="pill" href="#add-payee">Add Payee</a>
+                                                <a class="nav-link" id="register-for-interac-e-transfer-autodeposit-tab" data-toggle="pill" href="#register-for-interac-e-transfer-autodeposit" aria-selected="false">Register for <i>Interac</i> e-Transfer Autodeposit</a>
+                                                <a class="nav-link d-flex justify-content-between align-items-center" id="add-interac-e-transfer-recipient-tab" data-toggle="pill" href="#add-interac-e-transfer-recipient" aria-selected="false">Add Interac e-Transfer Recipient</a>
+                                                <a class="nav-link mb-0" id="add-other-acce-royal-bank-customer-tab" data-toggle="pill" href="#add-other-acce-royal-bank-customer" aria-selected="false">Add Other ACCE Bank Customer</a>
+                                                <a class="nav-link mb-0" id="nickname-payees-tab" data-toggle="pill" href="#nickname-payees" aria-selected="false">Nickname Payees</a>
+                                            </div>
+                                        </div><!--end card-body-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body profile-nav"> 
+                                            <h5 class="my-4">Need Help?</h5>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Enter your question here" aria-label="Enter your question here">
+                                                <span class="input-group-append">
+                                                    <button class="btn btn-primary" type="button">Go!</button>
+                                                </span>
+                                            </div>
+                                        </div><!--end card-body-->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div><!--end row-->
+                    
+
+                </div><!-- container -->
+
+                <footer class="footer text-center text-sm-left">
+                    &copy; 2025 ACCE BANK<span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Accinfo</span>
+                </footer>
+            </div>
+            <!-- end page content -->
+        </div>
+        <!-- end page-wrapper -->
+        <script>
+
+            function toggleMenu() {
+                document.querySelector(".left-side-nav-slider").classList.toggle("active");
+            }
+            function toggleDropdown(id, element) {
+                // Close all dropdowns
+                let dropdowns = document.querySelectorAll(".dropdown");
+                let navItems = document.querySelectorAll(".nav-item span");
+
+                dropdowns.forEach(drop => {
+                    if (drop.id !== id) drop.style.display = "none";
+                });
+
+                navItems.forEach(span => {
+                    span.innerHTML = "›"; // Reset all arrows
+                });
+
+                // Toggle the clicked dropdown
+                let dropdown = document.getElementById(id);
+                let span = element.querySelector("span");
+
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                    span.innerHTML = "›";
+                } else {
+                    dropdown.style.display = "block";
+                    span.innerHTML = "˅"; // Change arrow to down
+                }
+            }
+        </script>
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/waves.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>

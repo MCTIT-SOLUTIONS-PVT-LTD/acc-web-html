@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Acceinfo - Bank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A premium admin dashboard template by mannatthemes" name="description" />
+        <meta content="Mannatthemes" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+             <!-- Navbar -->
+             <nav class="navbar-custom">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo">
+                        <!-- <span>
+                            <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        </span> -->
+                        <span>
+                            <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                        </span>
+                    </a>
+                </div>
+    
+                <ul class="list-unstyled topbar-nav float-right mb-0">
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <i class="mdi mdi-bell-outline nav-icon"></i>
+                            <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+                            <!-- item-->
+                            <h6 class="dropdown-item-text">
+                                Notifications (258)
+                            </h6>
+                            <div class="slimscroll notification-list">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+                                    <p class="notify-details">Your item is shipped<small class="text-muted">It is a long established fact that a reader will</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                    <p class="notify-details">New Message received<small class="text-muted">You have 87 unread messages</small></p>
+                                </a>
+                            </div>
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                View all <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" /> 
+                            <span class="ml-1 nav-user-name hidden-sm"> <i class="mdi mdi-chevron-down"></i> </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted mr-2"></i> My Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Lock screen</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle nav-link" id="mobileToggle">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>    
+                </ul>
+    
+                <ul class="list-unstyled topbar-nav mb-0">
+                    <li class="hide-phone app-search">
+                        <form role="search" class="">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </form>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+            <!-- end navbar-->
+        </div>
+        <!-- Top Bar End -->
+        <div class="page-wrapper-img">
+            <div class="page-wrapper-img-inner">
+                <div class="sidebar-user media">                    
+                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                    <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
+                    <div class="media-body">
+                        <h5 class="text-light">Mr. Michael Hill </h5>
+                        <ul class="list-unstyled list-inline mb-0 mt-2">
+                            <li class="list-inline-item">
+                                <a href="#" class=""><i class="mdi mdi-account text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class=""><i class="mdi mdi-settings text-light"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="login.html" class=""><i class="mdi mdi-power text-danger"></i></a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="float-right align-item-center mt-2">
+                                <button class="btn btn-primary px-4 align-self-center report-btn">Contact Us</button>
+                            </div>
+                            <h4 class="page-title mb-2"><i class="mdi mdi-google-pages mr-2"></i>My Accounts</h4>  
+                            <div class="">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Personal Accounts</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Stop Payment Request</a></li>
+                                </ol>
+                            </div>                                      
+                        </div><!--end page title box-->
+                    </div><!--end col-->
+                </div><!--end row-->
+                <!-- end page title end breadcrumb -->
+            </div><!--end page-wrapper-img-inner-->
+        </div><!--end page-wrapper-img-->
+        
+        <div class="page-wrapper">
+            <div class="page-wrapper-inner">
+
+                <!-- Navbar Custom Menu -->
+                <div class="navbar-custom-menu">
+                    
+                    <div class="container-fluid">
+                        <div id="navigation">
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu list-unstyled">
+    
+                                <li class="has-submenu">
+                                    <a href="index.html">
+                                        <i class="mdi mdi-home"></i>
+                                        Home
+                                    </a>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-apps"></i>Products & Services</a>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-buffer"></i>My Accounts</a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Accounts Summary</a></li>
+                                        <li><a href="acce-pay-transfer-funds.html">Profile & Account Settings</a></li>
+                                    </ul>
+                                </li>
+    
+                                <li class="has-submenu">
+                                    <a href="#"><i class="mdi mdi-cards-playing-outline"></i>Customer Service</a>
+                                </li>
+                            </ul>
+                            <!-- End navigation menu -->
+                        </div> <!-- end navigation -->
+                    </div> <!-- end container-fluid -->
+                </div>
+                <!-- end left-sidenav-->
+            </div>
+            <!--end page-wrapper-inner -->
+            <!-- Page Content-->
+           
+
+            <div class="page-content">
+                <div class="container-fluid"> 
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body profile-nav"> 
+                                    <h5 class="my-4">Personal Accounts</h5>
+                                    <div class="nav-container">
+                                        <div class="nav-items" onclick="toggleDropdown('accountServices', this)">
+                                            Account Services <span>›</span>
+                                        </div>
+                                        <div id="accountServices" class="dropdown">
+                                            <a href="#">View Alerts</a>
+                                            <a href="#">Manage Notifications</a>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="nav flex-column nav-pills" id="profile-tab" aria-orientation="vertical">
+                                        <a class="nav-link active" id="pay-bills-and-transfer-funds-tab" data-toggle="pill" href="#pay-bills-and-transfer-funds" aria-selected="true">Pay Bills and Transfer Funds</a>
+                                        <a class="nav-link" id="request-money-tab" data-toggle="pill" href="#request-money" aria-selected="false">Request Money</a>
+                                        <a class="nav-link" id="pay-multiple-bills-tab" data-toggle="pill" href="#pay-multiple-bills" aria-selected="false">Pay Multiple Bills</a>
+
+                                        <a class="nav-link" id="set-up-save-matic-tab" data-toggle="pill" href="#set-up-save-matic" aria-selected="false">Set Up Save-Matic</a>
+                                        <a class="nav-link" id="international-money-transfer-tab" data-toggle="pill" href="#international-money-transfer" aria-selected="false">International Money Transfer</a>
+                                        <a class="nav-link" id="payment-history-tab" data-toggle="pill" href="#payment-history" aria-selected="false">Payment History</a>
+                                        <a class="nav-link" id="manage-postdated-transactions-tab" data-toggle="pill" href="#manage-postdated-transactions" aria-selected="false">Manage Postdated Transactions</a>
+                                        <a class="nav-link" id="manage-payees-tab" data-toggle="pill" href="#manage-payees" aria-selected="false">Manage Payees</a>
+                                        <a class="nav-link" id="view-eBills-tab" data-toggle="pill" href="#view-eBills" aria-selected="false">View eBills</a>
+                                        <a class="nav-link" id="credit-card-balance-transfer-tab" data-toggle="pill" href="#credit-card-balance-transfer" aria-selected="false">Credit Card Balance Transfer</a>
+                                        <a class="nav-link" id="transfer-funds-to-acce-us-banking-tab" data-toggle="pill" href="#transfer-funds-to-acce-us-banking" aria-selected="false">Transfer Funds to ACCE US Banking</a>
+
+                                        <a class="nav-link d-flex justify-content-between align-items-center" id="cancel-bill-payment-tab" data-toggle="pill" href="#cancel-bill-payment" aria-selected="false">Cancel Bill Payment</a>
+                                        <a class="nav-link mb-0" id="pay-multiple-bills-tab" data-toggle="pill" href="#pay-multiple-bills" aria-selected="false">Pay Multiple Bills</a>
+                                    </div>
+
+                                    <div class="nav-container">
+                                        <div class="nav-items" onclick="toggleDropdown('alertCentre', this)">
+                                            Alert Centre <span>›</span>
+                                        </div>
+                                        <div id="alertCentre" class="dropdown">
+                                            <a href="#">View Alerts</a>
+                                            <a href="#">Manage Notifications</a>
+                                        </div>
+
+                                        <div class="nav-items" onclick="toggleDropdown('profilePreferences', this)">
+                                            Profile and Preferences <span>›</span>
+                                        </div>
+                                        <div id="profilePreferences" class="dropdown">
+                                            <a href="#">Update Profile</a>
+                                            <a href="#">Change Password</a>
+                                        </div>
+
+                                        <div class="nav-items" onclick="toggleDropdown('productsServices', this)">
+                                            Apply for Products and Services <span>›</span>
+                                        </div>
+                                        <div id="productsServices" class="dropdown">
+                                            <a href="#">Credit Cards</a>
+                                            <a href="#">Loans</a>
+                                            <a href="#">Insurance</a>
+                                        </div>
+                                    </div>
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+
+                           
+
+                            
+                        </div><!--end col-->
+
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="tab-content" id="profile-tabContent">
+                                        <div class="tab-pane fade show active" id="pay-bills-and-transfer-funds">
+                                            <h2 class="text-primary">Stop Payment Request</h2>                                         
+                                            
+                                            <div class="row">
+                                                            
+                                                <div class="col-md-9 align-self-center">
+                                                    <p>
+                                                        If your payee hasn't yet processed your pre-authorized payment or deposited your cheque, 
+                                                        you can make a Stop Payment Request online. We'll do our best to cancel the payment, but 
+                                                        it may not always be possible.
+                                                    </p>
+
+                                                    <p>
+                                                        A fee of <strong>$12.50</strong> applies, unless Stop Payment Requests are included in your 
+                                                        <a href="#" class="text-primary">banking package.</a>
+                                                    </p>
+
+                                                    <p>
+                                                        To improve your chances of stopping a payment on time, please provide as much information as possible.
+                                                    </p>
+
+                                                    <p>
+                                                        Requests submitted on business days between <strong>4:00 a.m. and 9:30 p.m.</strong> (local time) 
+                                                        will be processed the same day. Otherwise, we'll process your request on the next business day.
+                                                    </p>
+
+                                                    <p>
+                                                        If you're missing required information about the pre-authorized payment or cheque, please visit your 
+                                                        local branch or call us at <strong>1-800-769-2511.</strong>
+                                                    </p>
+
+                                                    <h3>Stopping multiple pre-authorized payments or cheques</h3>
+
+                                                    <p>
+                                                        To stop multiple pre-authorized payments or cheques, you'll need to submit a separate request for each one.
+                                                        Alternatively, you can learn about other ways to 
+                                                        <a href="#" class="text-primary">stop multiple pre-authorized payments.</a>
+                                                    </p>
+
+                                                    <div class="info-box">
+                                                        <i class="mdi mdi-information-outline"></i>
+                                                        <p>
+                                                            You can't use Stop Payment Requests to cancel payments made at a branch, through Online Banking, ATM or 
+                                                            Telephone Banking.
+                                                            <br><br>
+                                                            In such cases, call us at <strong>1-800-769-2555</strong> before <strong>6:00 p.m. local time</strong> on the 
+                                                            day of the payment and we'll do our best to stop the transaction.
+                                                        </p>
+                                                    </div>
+                                                                
+                                                </div><!--end col-->
+                                            </div><!--end row--> 
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-start">
+                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light">Cancel</button>
+                                                            </div>          
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-end">
+                                                                <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target=".bd-example-modal-lg">Continue <i class="mdi mdi-greater-than"></i> </button>
+                                                            </div>             
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                     
+                                        </div><!--end tab-pane-->
+
+                                        <!-- sample modal content -->
+                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title mt-0 text-primary" id="myModalLabel">Stop Payment Request</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        
+                                                        <div class="col-md-12 align-self-center">
+                                                            <form class="mb-0">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">                            
+                                                                        <div class="form-group">
+                                                                            <label>What would you like to do? </label>
+                                                                            <div class="col-md-12">
+                                                                                <div class="my-2">
+                                                                                    <div class="radio radio-primary">
+                                                                                        <input type="radio" name="radio" id="radio3" value="option3">
+                                                                                        <label for="radio3">
+                                                                                            Stop a Cheque
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="my-2">
+                                                                                    <div class="radio radio-primary">
+                                                                                        <input type="radio" name="radio" id="radio4" value="option4">
+                                                                                        <label for="radio4">
+                                                                                            Stop a Pre-Authorized Payment
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>                                           
+                                                            </form>
+                                                            
+                                                        </div><!--end col-->
+                                                        
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-primary waves-effect waves-light">Continue <i class="mdi mdi-greater-than"></i></button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->  
+                                    </div>  <!--end tab-content-->                                                                              
+                                </div><!--end card-body-->
+                            </div><!--end card-->
+                        </div><!--end col-->
+                        
+                    </div><!--end row-->
+                    
+
+                </div><!-- container -->
+
+                <footer class="footer text-center text-sm-left">
+                    &copy; 2025 ACCE BANK<span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Accinfo</span>
+                </footer>
+            </div>
+            <!-- end page content -->
+        </div>
+        <!-- end page-wrapper -->
+        <script>
+            function toggleDropdown(id, element) {
+                // Close all dropdowns
+                let dropdowns = document.querySelectorAll(".dropdown");
+                let navItems = document.querySelectorAll(".nav-item span");
+
+                dropdowns.forEach(drop => {
+                    if (drop.id !== id) drop.style.display = "none";
+                });
+
+                navItems.forEach(span => {
+                    span.innerHTML = "›"; // Reset all arrows
+                });
+
+                // Toggle the clicked dropdown
+                let dropdown = document.getElementById(id);
+                let span = element.querySelector("span");
+
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                    span.innerHTML = "›";
+                } else {
+                    dropdown.style.display = "block";
+                    span.innerHTML = "˅"; // Change arrow to down
+                }
+            }
+        </script>
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/waves.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>

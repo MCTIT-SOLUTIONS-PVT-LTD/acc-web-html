@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Frogetor - OTP Verification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A premium admin dashboard template by mannatthemes" name="description" />
+    <meta content="Mannatthemes" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .otp-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .otp-input {
+            width: 40px;
+            height: 50px;
+            font-size: 24px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .otp-input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        /*.btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }*/
+        .resend-text {
+            margin-top: 10px;
+            color: #6c757d;
+        }
+        .resend-btn {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="account-body">
+
+    <!-- OTP Page -->
+    <div class="row vh-100">
+        <div class="col-lg-3 pr-0 mt-5">
+            <div class="card mb-0 shadow-none">
+                <div class="card-body">
+                    
+                    <div class="px-3">
+                        <div class="media">
+                            <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark-sm.png" height="55" alt="logo" class="my-3"></a>
+                            <div class="media-body ml-3 align-self-center">                                                                                                                       
+                                <h4 class="mt-0 mb-1" id="title-page">Enter Mobile Number</h4>
+                                <p class="text-muted mb-0">We will send you an OTP for verification.</p>
+                            </div>
+                        </div>                            
+
+                        <form class="form-horizontal my-4" id="otpForm"> 
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-cellphone font-16"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile Number">
+                                </div>                                    
+                            </div>
+
+                            <div class="form-group mb-0 row">
+                                <div class="col-12 mt-2">
+                                    <button class="btn btn-primary btn-block waves-effect waves-light" type="button" onclick="sendOTP()">Send OTP <i class="fas fa-sign-in-alt ml-1"></i></button>
+                                </div>
+                            </div>                            
+                        </form>
+
+                        <div id="otpSection" style="display: none;">
+                            <!-- <h4 class="text-center mt-3">Enter OTP</h4> -->
+                            <div class="otp-container">
+                                <input type="text" class="otp-input" maxlength="1" id="otp1" onkeyup="moveToNext(this, 'otp2')" />
+                                <input type="text" class="otp-input" maxlength="1" id="otp2" onkeyup="moveToNext(this, 'otp3')" />
+                                <input type="text" class="otp-input" maxlength="1" id="otp3" onkeyup="moveToNext(this, 'otp4')" />
+                                <input type="text" class="otp-input" maxlength="1" id="otp4" onkeyup="moveToNext(this, 'otp5')" />
+                                <input type="text" class="otp-input" maxlength="1" id="otp5" onkeyup="moveToNext(this, 'otp6')" />
+                                <input type="text" class="otp-input" maxlength="1" id="otp6" onkeyup="moveToNext(this, '')" />
+                            </div>
+                            <button class="btn btn-primary btn-block waves-effect waves-light mt-3" type="button" onclick="verifyOTP()">Verify OTP</button>
+
+                            <p class="resend-text">Didn't receive the OTP? <span id="countdown">30</span>s</p>
+                            <button class="resend-btn text-primary" id="resendOTP" onclick="resendOTP()">Resend OTP</button>
+                        </div>
+                    </div>
+
+                    <div class="m-3 text-center bg-light p-3 text-primary">
+                        <h5 class="">Remember It?</h5>
+                        <p class="font-13">Sign In Frogetor Now</p>
+                        <a href="login.html" class="btn btn-primary btn-round waves-effect waves-light">Sign In here</a>                
+                    </div>                        
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9 p-0 d-flex justify-content-center">
+            <div class="accountbg d-flex align-items-center"> 
+                <div class="account-title text-white text-center">
+                    <h2 class="mt-3">Welcome to Acce<span style="color: #df1a22;">Info</span></h2>
+                    <div class="border w-25 mx-auto border-primary"></div>
+                    <h1 class="">Let's Get Started</h1>
+                    <p class="font-14 mt-3">Remember It? <a href="" style="color: #df1a22;">Sign In here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End OTP Page -->
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let timer;
+        let countdownTime = 30;
+
+        function sendOTP() {
+            var mobile = document.getElementById("mobile").value;
+            if (mobile.length === 10) {
+                alert("OTP sent to " + mobile);
+                document.getElementById("otpSection").style.display = "block";
+                document.getElementById("otpForm").style.display = "none";
+                document.getElementById("title-page").innerText = "Enter OTP";
+                startCountdown();
+            } else {
+                alert("Enter a valid 10-digit mobile number.");
+            }
+        }
+
+        function moveToNext(current, nextFieldID) {
+            if (current.value.length === 1 && nextFieldID) {
+                document.getElementById(nextFieldID).focus();
+            }
+        }
+
+        function verifyOTP() {
+            let otp = "";
+            for (let i = 1; i <= 6; i++) {
+                otp += document.getElementById("otp" + i).value;
+            }
+
+            if (otp.length === 6 && otp === "123456") { // Replace with actual OTP validation
+                alert("OTP Verified Successfully!");
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid OTP! Try again.");
+            }
+        }
+
+        function startCountdown() {
+            document.getElementById("resendOTP").style.display = "none";
+            timer = setInterval(() => {
+                countdownTime--;
+                document.getElementById("countdown").textContent = countdownTime;
+
+                if (countdownTime === 0) {
+                    clearInterval(timer);
+                    document.getElementById("resendOTP").style.display = "inline";
+                }
+            }, 1000);
+        }
+
+        function resendOTP() {
+            alert("OTP has been resent!");
+            countdownTime = 30;
+            startCountdown();
+        }
+    </script>
+
+</body>
+</html>
