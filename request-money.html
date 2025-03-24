@@ -17,133 +17,84 @@
 
     </head>
 
-    <style type="text/css">
-        /* Default styles for the sidebar */
-        .left-side-nav-slider {
-            width: 250px;
-            background-color: white;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            overflow-y: auto;
-        }
-        .card-dt{
-            margin-bottom: 20px;
-            border: none;
-            -webkit-box-shadow: none !important;
-            border-radius: 3px;
-        }
-
-        /* Styles for mobile screens */
-        @media (max-width: 768px) {
-            /* Hide the menu by default in mobile */
-            .left-side-nav-slider {
-                position: fixed;
-                top: 0;
-                left: -100%; /* Initially hidden */
-                height: 100vh;
-                transition: left 0.3s ease-in-out;
-                z-index: 1050; /* Ensure it's above the navbar */
-                width: 80% !important;
-            }
-
-            /* Show the menu when active */
-            .left-side-nav-slider.active {
-                left: 0;
-            }
-
-            
-            /* Hamburger Menu Button */
-.menu-button {
-/*    position: fixed; */
-    /*top: 15px;
-    left: 15px;*/
-    margin: 15px;
-    margin-left: 18px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1100; /* Ensure it appears above other content */
-}
-
-/* The three bars of the menu */
-.menu-button div {
-    width: 35px;
-    height: 2px;
-    background-color: #004D6E; /* The color you requested */
-    transition: all 0.3s ease-in-out;
-    border-radius: 0px;
-    
-}
-        }
-
-        /* Keep the menu visible in desktop view */
-        @media (min-width: 769px) {
-            .left-side-nav-slider {
-                position: static; /* Keep it as a normal sidebar */
-                height: auto;
-
-            }
-
-            /* Hide the menu button on desktop */
-            .menu-button {
-                display: none;
-            }
-            .close-menu-button{
-                display: none !important;
-            }
-        }
-        /*.pt-225rem{
-            padding-top: 2.25rem;
-        }*/
-        .close-menu-button {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* X icon using ::before and ::after */
-        .close-menu-button::before,
-        .close-menu-button::after {
-            content: "";
-            position: absolute;
-            width: 24px;
-            height: 2px;
-            background-color: #004D6E;  /* Adjust the color to match your design */
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Rotate the bars to form an X */
-        .close-menu-button::before {
-            transform: rotate(45deg);
-        }
-
-        .close-menu-button::after {
-            transform: rotate(-45deg);
-        }
-
-        /* Hover effect */
-        .close-menu-button:hover::before,
-        .close-menu-button:hover::after {
-            background-color: #4a5bb5;  /* Darker color on hover */
-        }
-    </style>
-
     <body>
-
+        <div class="modal fade" id="editor-modal" tabindex="-1" role="dialog" aria-labelledby="editor-title">
+                                            
+            <div class="modal-dialog" role="document">
+                <form class="modal-content form-horizontal" id="editor">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editor-title">Add Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>                                                            
+                    </div>
+                    <div class="modal-body">
+                       
+                        <div class="form-group required row">
+                            <label for="Name" class="col-sm-3 control-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group require row">
+                            <label for="Email" class="col-sm-3 control-label">email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="Email" name="Email" placeholder="E-Mail" required>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                            <label for="TransferMethod" class="col-sm-3 control-label">Send Transfers by</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="TransferMethod" name="TransferMethod" placeholder="Transfers Method">
+                            </div>
+                        </div>
+                        <div class="form-group required row">
+                            <label for="preferredLangauge" class="col-sm-3 control-label">Contact's preferred language</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="preferredLangauge" name="preferredLangauge" placeholder="Preferred Langauge" required>
+                            </div>
+                        </div> -->
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Send Transfers by</label>
+                            <div class="col-sm-9">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-outline-light" id="transferEmailLabel">
+                                        <input type="checkbox" id="transferEmail" name="TransferMethod" value="Email"> Email
+                                    </label>
+                                    <label class="btn btn-outline-light" id="transferPhoneLabel">
+                                        <input type="checkbox" id="transferPhone" name="TransferMethod" value="Mobile phone"> Mobile Phone
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Contact's Preferred Language</label>
+                            <div class="col-sm-9">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-outline-light" id="langEnglishLabel">
+                                        <input type="radio" id="langEnglish" name="preferredLangauge" value="English" checked> English
+                                    </label>
+                                    <label class="btn btn-outline-light" id="langFrenchLabel">
+                                        <input type="radio" id="langFrench" name="preferredLangauge" value="French"> French
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group row">
+                            <label for="SecurityQuestion" class="col-sm-3 control-label">Security Question</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="SecurityQuestion" name="SecurityQuestion" placeholder="Security Question">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-light">Save changes</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <!-- Top Bar Start -->
         <div class="topbar">
              <!-- Navbar -->
@@ -292,12 +243,7 @@
         </div><!--end page-wrapper-img-->
         
         <div class="page-wrapper">
-            <div class="page-wrapper-inner mb-0">
-                <button class="menu-button" onclick="toggleMenu()">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </button>
+            <div class="page-wrapper-inner">
 
                 <!-- Navbar Custom Menu -->
                 <div class="navbar-custom-menu">
@@ -343,17 +289,19 @@
             <div class="page-content">
                 <div class="container-fluid"> 
                     <div class="row">
-                        <div class="col-lg-3 left-side-nav-slider">
-                            <div class="card card-dt">
+                        <div class="col-lg-3">
+                            <div class="card">
                                 <div class="card-body profile-nav"> 
                                     
-                                     <button class="close-menu-button" onclick="toggleMenu()"></button>
+                                    
                                     
                                     <div class="nav flex-column nav-pills" id="profile-tab" aria-orientation="vertical">
                                         <h5 class="my-4">Pay, Send & Receive Money</h5>
 
                                         <a class="nav-link" id="pay-a-bill-tab" href="pay-a-bill.html">Pay a Bill</a>
-                                        <a class="nav-link active" id="transfer-funds-tab" href="#">Transfer Funds</a>
+
+                                        <a class="nav-link " id="transfer-funds-tab" href="transfer-money.html">Transfer Money</a>
+
                                         <a class="nav-link" id="send-an-interac-e-transfer-tab" href="#"><em>Send an Interac e-Transfer</em></a>
 
                                         <a class="nav-link" id="send-international-money-transfer-tab" href="#">Send International Money Transfer</a>
@@ -362,7 +310,7 @@
 
                                         <a class="nav-link" id="pay-multiple-bills-tab" href="pay-multi-bills.html">Pay Multiple Bills</a>
 
-                                        <a class="nav-link" id="request-money-tab" href="request-money.html">Request Money</a>
+                                        <a class="nav-link active" id="request-money-tab" href="request-money.html">Request Money</a>
 
                                         <a class="nav-link" id="register-for-interac-e-transfer-autoDeposit-tab" href="#">Register for <em>Interac</em> e-Transfer AutoDeposit</a>
 
@@ -372,24 +320,23 @@
 
 
                                         <h5 class="my-4">Manage Payments & Transfers</h5>
-                                            <a class="nav-link" id="payment-history-tab" href="#payment-history">Payment History</a>
-                                            <a class="nav-link" id="manage-postdated-transactions-tab" href="#manage-postdated-transactions">Manage Postdated Transactions</a>
-                                            <a class="nav-link" id="cancel-bill-payment-tab" href="#cancel-bill-payment">Cancel Bill Payment</a>
-                                            <a class="nav-link" id="cancel-interac-e-transfer-tab" href="#cancel-interac-e-transfer"><em>Cancel Interac e-Transfer</em></a>
+                                            <a class="nav-link" id="payment-history-tab" href="#">Payment History</a>
+                                            <a class="nav-link" id="manage-postdated-transactions-tab" href="#">Manage Postdated Transactions</a>
+                                            <a class="nav-link" id="cancel-bill-payment-tab" href="#">Cancel Bill Payment</a>
+                                            <a class="nav-link" id="cancel-interac-e-transfer-tab" href="#"><em>Cancel Interac e-Transfer</em></a>
 
                                         <h5 class="my-4">Add Payees & Recipients</h5>
                                             <a class="nav-link" id="add-bill-payee-tab" href="#add-bill-payee">Add Bill Payee</a>
-                                            <a class="nav-link" id="add-canada-revenue-agency-payee-tab" href="#add-canada-revenue-agency-payee">Add Canada Revenue Agency Payee</a>
-                                            <a class="nav-link" id="add-interac-e-transfer-recipient-tab" href="#add-interac-e-transfer-recipient"><em>Add Interac e-Transfer Recipient</em></a>
-                                            <a class="nav-link" id="add-international-money-transfer-recipient-tab" href="#add-international-money-transfer-recipient">Add International Money Transfer Recipient</a>
-                                            <a class="nav-link" id="add-other-acce-bank-customer-tab" href="#add-other-acce-bank-customer">Add Other ACCE Bank Customer</a> 
+                                            <a class="nav-link" id="add-canada-revenue-agency-payee-tab" href="#">Add Canada Revenue Agency Payee</a>
+                                            <a class="nav-link" id="add-interac-e-transfer-recipient-tab" href="#"><em>Add Interac e-Transfer Recipient</em></a>
+                                            <a class="nav-link" id="add-international-money-transfer-recipient-tab" href="#">Add International Money Transfer Recipient</a>
+                                            <a class="nav-link" id="add-other-acce-bank-customer-tab" href="#">Add Other ACCE Bank Customer</a> 
 
                                         <h5 class="my-4">Manage Payees & Recipients</h5>
-                                            <a class="nav-link" id="manage-payees-tab" href="#manage-payees">Manage Payees</a>
-                                            <a class="nav-link" id="manage-international-money-transfer-recipients-tab" href="#manage-international-money-transfer-recipients">Manage International Money Transfer Recipients</a>
-                                            <a class="nav-link" id="manage-contact-tab" href="manage-contact.html">Manage Contact</a> 
-                                            <a class="nav-link" id="sort-payee-list-tab" href="#sort-payee-list">Sort Payee List</a>
-                                            <a class="nav-link" id="nickname-payees-tab" href="#nickname-payees">Nickname Payees</a>         
+                                            <a class="nav-link" id="manage-payees-tab" href="#">Manage Payees</a>
+                                            <a class="nav-link" id="manage-international-money-transfer-recipients-tab" href="#">Manage International Money Transfer Recipients</a>
+                                            <a class="nav-link" id="sort-payee-list-tab" href="#">Sort Payee List</a>
+                                            <a class="nav-link" id="nickname-payees-tab" href="#">Nickname Payees</a>         
 
                                     </div>
 
@@ -429,177 +376,131 @@
 
                         <div class="col-lg-9">
                             <div class="card">
-                                <div class="card-body pt-225rem">
+                                <div class="card-body">
                                     <div class="tab-content" id="profile-tabContent">
                                         <div class="tab-pane fade show active" id="pay-bills-and-transfer-funds">
-                                            <h3 class="text-primary">Pay Bills and Transfer Funds</h3> 
-                                            <br />                                       
-                                             <div class="single-pro-info-tab">
-                                                <ul class="nav nav-pills mb-0 nav-justified" id="pills-tab" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" id="pay-with-acce-accounts-tab" data-toggle="pill" href="#pay-with-acce-accounts" aria-selected="true">Pay with ACCE Accounts</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" id="pay-with-acce-rewards-points-tab" data-toggle="pill" href="#pay-with-acce-rewards-points"  aria-selected="false">Pay with Rewards Points</a>
-                                                    </li>
-                                                </ul>
+                                            <h3 class="text-primary">Request Money</h3> 
+                                                                       
+                                            <!-- Request Summary Modal -->
+                                            <div class="modal fade" id="requestSummaryModal" tabindex="-1" role="dialog" aria-labelledby="requestSummaryModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Request Summary</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span>&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body" id="requestSummaryContent">
+                                                            Loading...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary">Confirm Request</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div>
-                                                <div class="tab-content mt-4" id="pills-tabContent">
-                                                    <div class="tab-pane fade show active" id="pay-with-acce-accounts">
+                                                <div>
+                                                    <div>
                                                         <div class="row">
                                                             
                                                             <div class="col-md-12 align-self-center">
-                                                                <form class="mb-0">
-                                                                    <div class="row">
-                                                                        <div class="col-md-9">
-                                                                            <div class="form-group">
-                                                                                <label>From <small class="text-danger font-13">*</small></label>
-                                                                                <select class="form-control">
-                                                                                    <option>No Saeed! = $0.00 USD</option>
-                                                                                </select>
-                                                                            </div>
+                                                                <form id="requestForm">
+                                                                    <!-- Request From -->
+                                                                    <div class="form-group">
+                                                                        <label for="requestFrom">Request from</label>
+                                                                        <select class="form-control" id="requestFrom">
+                                                                            <option>Select</option>
+                                                                            <option>Chequing-100108226953 = $51,538.78</option>
+                                                                            <option>Savings-100108226953 = $51,538.78</option>
+                                                                        </select>
+                                                                        <button type="button" class="btn btn-outline-primary btn-sm  mt-2  right" id="addContactBtn">+ Add contact</button>
+                                                                    </div>
+                                                            
+                                                                    <!-- Send Request To -->
+                                                                    <div class="form-group">
+                                                                        <label for="sendRequestTo">Send request to</label>
+                                                                        <select class="form-control" id="sendRequestTo">
+                                                                            <option>Select</option>
+                                                                            <option>John Doe</option>
+                                                                            <option>Jane Doe</option>
+                                                                        </select>
+                                                                    </div>
+                                                            
+                                                                    <!-- Contact Legal Name -->
+                                                                    <div class="form-group">
+                                                                        <label for="contactLegalName">Contact legal name</label>
+                                                                        <input type="text" class="form-control" id="contactLegalName" placeholder="John Doe">
+                                                                    </div>
+                                                            
+                                                                    <!-- Deposit To -->
+                                                                    <div class="form-group">
+                                                                        <label for="depositTo">Deposit to</label>
+                                                                        <select class="form-control" id="depositTo">
+                                                                            <option>Select</option>
+                                                                            <option>Chequing-100108226953 = $51,538.78</option>
+                                                                            <option>Savings-100108226953 = $51,538.78</option>
+                                                                        </select>
+                                                                    </div>
+                                                            
+                                                                    <!-- Amount -->
+                                                                    <div class="form-group">
+                                                                        <label for="amount">Amount</label>
+                                                                        <div class="input-group">
+                                                                            <input type="number" class="form-control" id="amount" placeholder="$0.00">
+                                                                            <select class="form-control">
+                                                                                <option>CAD</option>
+                                                                                <option>USD</option>
+                                                                            </select>
                                                                         </div>
-                                                                        <div class="col-md-9">
-                                                                            <div class="form-group">
-                                                                                <label>To <small class="text-danger font-13">*</small></label>
-                                                                                <select class="form-control">
-                                                                                    <option>Select</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>                                                
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">                            
-                                                                            <div class="form-group">
-                                                                                <label>Add new payee <small class="text-danger font-13">*</small></label>
-                                                                                <div class="col-md-12">
-                                                                                    <div class="my-2">
-                                                                                        <div class="radio radio-primary">
-                                                                                            <input type="radio" name="radio" id="radio3" value="option3">
-                                                                                            <label for="radio3">
-                                                                                                Bill Payee
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="my-2">
-                                                                                        <div class="radio radio-primary">
-                                                                                            <input type="radio" name="radio" id="radio4" value="option4">
-                                                                                            <label for="radio4">
-                                                                                                Interace-Transfer Recipient
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="my-2">
-                                                                                        <div class="radio radio-primary">
-                                                                                            <input type="radio" name="radio" id="radio5" value="option5">
-                                                                                            <label for="radio5">
-                                                                                                ACCE Customer Account
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        
+                                                            
+                                                                    <!-- Invoice Number -->
+                                                                    <div class="form-group">
+                                                                        <label for="invoiceNumber">Invoice number (optional)</label>
+                                                                        <input type="text" class="form-control" id="invoiceNumber" placeholder="Optional">
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-5">
-                                                                            <div class="form-group">
-                                                                                <label>Amount <small class="text-danger font-13">*</small></label>
-                                                                                <div class="col-md-12">
-                                                                                    <div class="row">
-                                                                                        <div class="input-daterange input-group" id="date-range">
-                                                                                            <input type="text" name="amount" class="form-control col-md-8" placeholder="$0.00" id="amount" required="">
-                                                                                            <select class="form-control">
-                                                                                                <option>CAD</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>                                               
+                                                            
+                                                                    <!-- Invoice Due Date -->
+                                                                    <div class="form-group">
+                                                                        <label for="invoiceDueDate">Invoice due date (optional)</label>
+                                                                        <input type="date" class="form-control" id="invoiceDueDate">
                                                                     </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-md-5">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label pt-0">How Often<small class="text-danger font-13">*</small></label>
-                                                                                <select class="form-control">
-                                                                                    <option value="Once" selected>Once</option>
-                                                                                    <option value="Weekly">Weekly</option>
-                                                                                    <option value="Bi-Weekly">Bi-Weekly</option>
-                                                                                    <option value="Twice Monthly">Twice Monthly</option>
-                                                                                    <option value="Monthly">Monthly</option>
-                                                                                    <option value="Month End">Month End</option>
-                                                                                    <option value="Bi-Monthly">Bi-Monthly</option>
-                                                                                    <option value="Quarterly">Quarterly</option>
-                                                                                    <option value="Semi-Annually">Semi-Annually</option>
-                                                                                    <option value="Annually">Annually</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div> 
-                                                                                                                        
+                                                            
+                                                                    <!-- Message -->
+                                                                    <div class="form-group">
+                                                                        <label for="message">Message (optional)</label>
+                                                                        <textarea class="form-control" id="message" rows="3" placeholder="Your message here"></textarea>
                                                                     </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-md-5">
-                                                                            <div class="form-group">
-                                                                                <label class="col-form-label pt-0">When <small class="text-danger font-13">*</small></label>
-                                                                                <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                                                            </div>            
-                                                                        </div>                                                
+                                                            
+                                                                    <!-- Consent Checkbox -->
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="consent" required>
+                                                                        <label class="form-check-label" for="consent">
+                                                                            I have consent from the recipient to send this request.
+                                                                        </label>
                                                                     </div>
-
-
+                                                            
+                                                                    <!-- Action Buttons -->
                                                                     <div class="row">
-                                                                        <div class="col-6">
+                                                                        <div class="col-md-3 mb-4">
                                                                             <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-start">
-                                                                                <button type="button" class="btn btn-outline-primary waves-effect waves-light btn-pd-left-right">Cancel</button>
+                                                                                <button type="reset" class="btn btn-outline-primary waves-effect waves-light btn-pd-left-right w-100">Clear</button>
                                                                             </div>          
                                                                         </div>
-                                                                        <div class="col-6">
-                                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-end">
-                                                                                <button type="button" class="btn btn-primary waves-effect waves-light btn-pd-left-right">Next</button>
-                                                                            </div>             
+                                                                        <div class="col-md-3 mb-4">
+                                                                            <div class="btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-start">
+                                                                                <button type="button" class="btn btn-primary waves-effect waves-light btn-pd-left-right w-100" id="openSummaryModal">
+                                                                                    Continue
+                                                                                </button>
+                                                                                                                                                                                                                                    </div>
                                                                         </div>
                                                                     </div>
-
-                                                                    <br />
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="alert alert-outline-primary mb-0" role="alert">
-                                                                                <h4 class="alert-heading font-18"><i class="fas fa-info-circle"></i> When are my transactions processed?</h4>
-                                                                               <p>After you initiate an <em>Interac</em> e-Transfer, we will withdraw the chosen amount from the account selected and 
-                                                                                send an email or text message notification to the <em>Interac</em> e-Transfer recipient at the email address or mobile 
-                                                                                number that you provide. The email or text message notification will identify you as the sender and contain 
-                                                                                the <em>Interac</em> e-Transfer amount, the name of the <em>Interac</em> e-Transfer recipient, and that you are using 
-                                                                                <em>Interac</em> e-Transfer.</p>
-
-                                                                                <p>An <em>Interac</em> e-Transfer recipient can claim or decline the <em>Interac</em> e-Transfer using Online and Mobile Banking, 
-                                                                                the online and mobile banking services of another financial institution.</p>
-
-                                                                                <p>ACCE and other financial institutions participating in <em>Interac</em> e-Transfer, the owner of the <em>Interac</em> e-Transfer 
-                                                                                service, are entitled to pay an <em>Interac</em> e-Transfer to anyone who, in using Online or Mobile Banking, or the 
-                                                                                online or mobile banking service of another financial institution, claims the <em>Interac</em> e-Transfer and where 
-                                                                                applicable, correctly responds to the <em>Interac</em> e-Transfer question, whether you intended that person to receive 
-                                                                                the <em>Interac</em> e-Transfer or not.</p>
-
-                                                                                <p>You are responsible for providing a correct and operational email address and/or mobile number for the transaction.</p>
-                                                                            </div>                                                                            
-                                                                        </div>
-                                                                        
-                                                                    </div>                                            
-                                                                </form>
-                                                                
+                                                                </form>                                                                
                                                             </div><!--end col-->
                                                         </div><!--end row-->                                                    
-                                                    </div>
-                                                    <div class="tab-pane fade mt-4" id="pay-with-acce-rewards-points">
-                                                        <div>
-                                                            
-                                                                                                                                                                      
-                                                        </div>
                                                     </div>
                                                     <div class="tab-pane fade mt-4" id="pills-about-brand">
                                                         <div class="row">
@@ -689,7 +590,7 @@
                                         <div class="card-body profile-nav"> 
                                             <h5 class="my-4">Related Services</h5>
                                             <div class="nav flex-column nav-pills" id="profile-tab" aria-orientation="vertical">
-                                                <a class="nav-link" id="add-payee-tab" data-toggle="pill" href="#add-payee">Add Payee</a>
+                                                <a class="nav-link" id="add-payee-tab" data-toggle="pill" href="#add-payee" aria-selected="true">Add Payee</a>
                                                 <a class="nav-link" id="register-for-interac-e-transfer-autodeposit-tab" data-toggle="pill" href="#register-for-interac-e-transfer-autodeposit" aria-selected="false">Register for <i>Interac</i> e-Transfer Autodeposit</a>
                                                 <a class="nav-link d-flex justify-content-between align-items-center" id="add-interac-e-transfer-recipient-tab" data-toggle="pill" href="#add-interac-e-transfer-recipient" aria-selected="false">Add Interac e-Transfer Recipient</a>
                                                 <a class="nav-link mb-0" id="add-other-acce-royal-bank-customer-tab" data-toggle="pill" href="#add-other-acce-royal-bank-customer" aria-selected="false">Add Other ACCE Bank Customer</a>
@@ -728,11 +629,66 @@
             <!-- end page content -->
         </div>
         <!-- end page-wrapper -->
-        <script>
 
-            function toggleMenu() {
-                document.querySelector(".left-side-nav-slider").classList.toggle("active");
-            }
+        <script>
+            document.getElementById('openSummaryModal').addEventListener('click', function () {
+                // Get form values
+                const requestFrom = document.getElementById('requestFrom').value.trim();
+                const sendRequestTo = document.getElementById('sendRequestTo').value.trim();
+                const contactLegalName = document.getElementById('contactLegalName').value.trim();
+                const depositTo = document.getElementById('depositTo').value.trim();
+                const amount = document.getElementById('amount').value.trim();
+                const currency = document.querySelector('#amount + select')?.value || 'CAD'; // Fallback
+                const invoiceNumber = document.getElementById('invoiceNumber').value || 'N/A';
+                const invoiceDueDate = document.getElementById('invoiceDueDate').value || 'N/A';
+                const message = document.getElementById('message').value || 'N/A';
+                const consent = document.getElementById('consent').checked;
+        
+                // Validation
+                let isValid = true;
+                let errors = [];
+        
+                if (!requestFrom || requestFrom === 'Select') errors.push('Please select "Request from".');
+                if (!sendRequestTo || sendRequestTo === 'Select') errors.push('Please select "Send request to".');
+                if (!contactLegalName) errors.push('Please enter "Contact legal name".');
+                if (!depositTo || depositTo === 'Select') errors.push('Please select "Deposit to".');
+                if (!amount || isNaN(amount) || parseFloat(amount) <= 0) errors.push('Please enter a valid amount.');
+                if (!consent) errors.push('You must confirm that you have consent from the recipient.');
+        
+                if (!isValid || errors.length > 0) {
+                    alert(errors.join('\n'));
+                    return;
+                }
+        
+                // Populate summary modal
+                document.getElementById('requestSummaryContent').innerHTML = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-primary">Request Summary</h5>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr><th>Request From:</th><td>${requestFrom}</td></tr>
+                                    <tr><th>Send Request To:</th><td>${sendRequestTo}</td></tr>
+                                    <tr><th>Contact Legal Name:</th><td>${contactLegalName}</td></tr>
+                                    <tr><th>Deposit To:</th><td>${depositTo}</td></tr>
+                                    <tr><th>Amount:</th><td>${currency} ${amount}</td></tr>
+                                    <tr><th>Invoice Number:</th><td>${invoiceNumber}</td></tr>
+                                    <tr><th>Invoice Due Date:</th><td>${invoiceDueDate}</td></tr>
+                                    <tr><th>Message:</th><td>${message}</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+        
+                // Show modal
+                $('#requestSummaryModal').modal('show');
+            });
+        </script>
+        
+        
+        
+        <script>
             function toggleDropdown(id, element) {
                 // Close all dropdowns
                 let dropdowns = document.querySelectorAll(".dropdown");
@@ -759,6 +715,18 @@
                 }
             }
         </script>
+        <script>
+            document.querySelector('.btn-outline-primary').addEventListener('click', function() {
+                var form = document.getElementById('my-acccount-form');
+                
+                // Reset form fields
+                form.reset();
+        
+                // Clear any custom fields (if any)
+                document.querySelector('#amount').value = '';  // If you want to clear specific fields like amount
+            });
+        </script>
+        
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -768,5 +736,13 @@
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 
+
+        <script>
+            $(document).ready(function () {
+                $('#addContactBtn').on('click', function () {
+                    $('#editor-modal').modal('show');
+                });
+            });
+        </script>
     </body>
 </html>
