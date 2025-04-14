@@ -8183,6 +8183,9 @@ tr:first-child > td > .fc-day-grid-event {
         font-size: 10px;
     }
 }
-
+.highlight-files{
+  border-radius: 0px;
+  border: 1px solid #00bcd4;
+}
 
 /* MCT DEV END */
